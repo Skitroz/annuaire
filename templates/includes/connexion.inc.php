@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php require_once('dbConnect.php'); ?>
+    <?php require_once(__DIR__ . '/../../configs/bootstrap.php'); ?>
     <?php require_once('../layouts/header.layout.php'); ?>
 
     <div class="mt-36 flex justify-center items-center">

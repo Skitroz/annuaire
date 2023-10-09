@@ -6,7 +6,7 @@
         <a href="./"><img width="140" src="https://normandiewebschool.fr/uploads/logo_nws.svg"
                 alt="L'école des métiers du numérique"></a>
         <ul class="flex gap-8">
-            <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><a href="#"
+            <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><a href="./annuaire"
                     class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold">Annuaire</a>
             </li>
             <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><a href="./connexion" class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold">Mon

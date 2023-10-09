@@ -1,4 +1,4 @@
 RewriteEngine On
-RewriteRule ^accueil$ templates/includes/accueil.inc.php [L]
+RewriteRule ^annuaire$ templates/includes/annuaire.inc.php [L]
 RewriteRule ^connexion$ templates/includes/connexion.inc.php [L]
 RewriteRule ^db$ templates/includes/dbConnect.php [L]
