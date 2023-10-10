@@ -1,6 +1,6 @@
 {
     "db_host": "localhost",
     "db_user": "root",
-    "db_password": "Azerty123!",
+    "db_password": "",
     "db_name": "annuaire"
 }
