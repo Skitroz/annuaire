@@ -1,6 +1,14 @@
 {
+<<<<<<< HEAD
     "db_host": "localhost",
     "db_user": "root",
     "db_password": "Azerty123!",
     "db_name": "annuaire"
 }
+=======
+    "db_host": "5.196.27.151",
+    "db_name": "annuaire",
+    "db_user": "clnjcc4700004a6pk8veogiu2",
+    "db_password": "kGI1VSvWdP4LQikGnNqrbh6L"
+}
+>>>>>>> e6481924f60e0740e5900bf43ccc2deccecdb0a1
