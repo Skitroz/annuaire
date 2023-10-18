@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -33,7 +34,7 @@
                     class="w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
             </div>
             <div class="flex justify-center items-center">
-                <input type="submit" name="connexion" placeholder="Se connecter"
+                <input type="submit" name="connexion" value="Se connecter"
                     class="mt-16 py-4 px-10 rounded-lg bg-[#00a5a5] text-white font-semibold cursor-pointer">
             </div>
         </form>
@@ -44,6 +45,10 @@
 
 <?php
 
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 if (isset($_POST["connexion"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -52,7 +57,8 @@ if (isset($_POST["connexion"])) {
     $stmt->execute([$username, $password]);
 
     if ($stmt->rowCount() > 0) {
-        header("Location: accueil");
+        $_SESSION['username'] = $username;
+        header("Location: ./annuaire.inc.php");
         exit();
     } else {
         echo "<p class='text-red-500 font-bold text-lg mt-8 text-center'>Le nom d'utilisateur ou le mot de passe est incorrect.</p>";

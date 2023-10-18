@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -14,103 +14,130 @@
 
     <div class="mb-10 mt-[200px] flex flex-col">
         <div class="flex justify-center items-center gap-16 mb-4">
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParSpecialite('Tous')">Tous</button>
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParSpecialite('Développement Web')">Développement Web</button>
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParSpecialite('Web Marketing')">Web Marketing</button>
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParSpecialite('Communication Graphique')">Communication Graphique</button>
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParSpecialite('Community Management')">Community Management</button>
         </div>
         <div class="flex justify-center items-center gap-16">
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParAnnee('A1')">A1</button>
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParAnnee('A2')">A2</button>
-            <button class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold"
+            <button
+                class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 onclick="filtrerParAnnee('A3')">A3</button>
         </div>
+        <div class="mx-auto mt-[86px]">
+            <button
+                class="w-[200px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><a
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-white bg-[#00a5a5] font-semibold"
+                    href="./ajoutEtudiant.inc.php">Ajouter
+                    un
+                    étudiant</a></button>
+        </div>
     </div>
-    <div class="max-w-screen-md text-center mx-auto">
-        <table id="tableau" class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th scope="col"
-                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Nom</th>
-                    <th scope="col"
-                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Prénom</th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-mail
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Année
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Spécialité</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                <?php
-                function annuaire()
-                {
-                    require(__DIR__ . '/../../configs/bootstrap.php');
+    </div>
+    <div class="flex justify-center items-center gap-4">
+        <div class="text-center">
+            <table id="tableau" class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-[#00a5a5]">
+                    <tr>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                            Nom</th>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                            Prénom</th>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                            E-mail
+                        </th>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Année
+                        </th>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                            Spécialité</th>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                            Modifier</th>
+                        <th scope="col"
+                            class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                            Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <?php
+                    function annuaire()
+                    {
+                        require(__DIR__ . '/../../configs/bootstrap.php');
 
-                    $requete = "SELECT * FROM etudiants";
+                        $requete = "SELECT * FROM etudiants";
 
-                    $stmt = $pdo->prepare($requete);
-                    $stmt->execute();
+                        $stmt = $pdo->prepare($requete);
+                        $stmt->execute();
 
-                    $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach ($resultat as $resultats) {
-                        echo '<tr>';
-                        echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["nom"] . '</td>';
-                        echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["prenom"] . '</td>';
-                        echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["mail"] . '</td>';
-                        echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["annee"] . '</td>';
-                        echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["spe"] . '</td>';
-                        echo '</tr>';
+                        foreach ($resultat as $resultats) {
+                            echo '<tr>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["nom"] . '</td>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["prenom"] . '</td>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["mail"] . '</td>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["annee"] . '</td>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["spe"] . '</td>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><a href="./modifierEtudiant.inc.php?id=' . $resultats["id"] . '"><i class="fas fa-edit"></i></a></td>';
+                            echo '<td class="px-6 py-4 whitespace-nowrap transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><a href="./supprimerEtudiant.inc.php?id=' . $resultats["id"] . '"><i class="fas fa-trash"></i></a></td>';
+                            echo '</tr>';
+                        }
                     }
-                }
-                annuaire();
-                ?>
-            </tbody>
-        </table>
-    </div>
+                    annuaire();
+                    ?>
+                </tbody>
+            </table>
+        </div>
 
-    <script>
-        function filtrerParSpecialite(specialite) {
-            const tableau = document.querySelectorAll('#tableau tbody tr');
-            tableau.forEach(function (tableau) {
-                const colonneSpecialite = tableau.querySelector('td:nth-child(5)').textContent;
-                if (specialite === 'Tous' || colonneSpecialite === specialite) {
-                    tableau.style.display = 'table-row';
-                } else {
-                    tableau.style.display = 'none';
-                }
-            });
-        }
-        // Appelez cette fonction pour afficher tous les étudiants au chargement de la page.
-        filtrerParSpecialite('Tous');
+        <script>
+            function filtrerParSpecialite(specialite) {
+                const tableau = document.querySelectorAll('#tableau tbody tr');
+                tableau.forEach(function (tableau) {
+                    const colonneSpecialite = tableau.querySelector('td:nth-child(5)').textContent;
+                    if (specialite === 'Tous' || colonneSpecialite === specialite) {
+                        tableau.style.display = 'table-row';
+                    } else {
+                        tableau.style.display = 'none';
+                    }
+                });
+            }
+            // Appelez cette fonction pour afficher tous les étudiants au chargement de la page.
+            filtrerParSpecialite('Tous');
 
-        function filtrerParAnnee(annee) {
-            const tableau = document.querySelectorAll('#tableau tbody tr');
-            tableau.forEach(function (tableau) {
-                const colonneAnnee = tableau.querySelector('td:nth-child(4)').textContent;
-                if (annee === 'Tous' || colonneAnnee === annee) {
-                    tableau.style.display = 'table-row';
-                } else {
-                    tableau.style.display = 'none';
-                }
-            });
-        }
-    </script>
+            function filtrerParAnnee(annee) {
+                const tableau = document.querySelectorAll('#tableau tbody tr');
+                tableau.forEach(function (tableau) {
+                    const colonneAnnee = tableau.querySelector('td:nth-child(4)').textContent;
+                    if (annee === 'Tous' || colonneAnnee === annee) {
+                        tableau.style.display = 'table-row';
+                    } else {
+                        tableau.style.display = 'none';
+                    }
+                });
+            }
+        </script>
 </body>
 
 </html>
