@@ -123,7 +123,7 @@
             let anneeFiltre = 'Tous';
 
             function filtrerParSpecialite(specialite) {
-                specialiteFiltre = specialite; // Mettez à jour la valeur du filtre de spécialité
+                specialiteFiltre = specialite;
                 const tableau = document.querySelectorAll('#tableau tbody tr');
                 const boutonSpecialite = document.querySelectorAll('#specialite-bouton .bouton-specialite');
 
@@ -153,7 +153,7 @@
             filtrerParSpecialite('Tous');
 
             function filtrerParAnnee(annee) {
-                anneeFiltre = annee; // Mettez à jour la valeur du filtre d'année
+                anneeFiltre = annee;
                 const tableau = document.querySelectorAll('#tableau tbody tr');
                 const boutonAnnee = document.querySelectorAll('#annee-bouton .bouton-annee');
 
