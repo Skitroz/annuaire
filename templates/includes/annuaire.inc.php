@@ -12,39 +12,40 @@
 <body>
     <?php require_once('../layouts/header.layout.php'); ?>
 
-    <div class="mb-10 mt-[200px] flex flex-col">
-        <div class="flex justify-center items-center gap-16 mb-4">
-            <div id="specialite-bouton">
+    <div class="mb-10 mt-36 flex flex-col">
+        <div class="mb-4">
+            <div id="specialite-bouton" class="text-center sm:flex sm:justify-center sm:items-center sm:gap-8">
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
                     onclick="filtrerParSpecialite('Tous')">Tous</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
                     onclick="filtrerParSpecialite('Développement Web')">Développement Web</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
                     onclick="filtrerParSpecialite('Web Marketing')">Web Marketing</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
+                    class="my-2 shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
                     onclick="filtrerParSpecialite('Communication Graphique')">Communication Graphique</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-specialite"
                     onclick="filtrerParSpecialite('Community Management')">Community Management</button>
             </div>
         </div>
-        <div class="flex justify-center items-center gap-16">
-            <div id="annee-bouton">
+
+        <div class="flex justify-center items-center gap-16 mt-4">
+            <div id="annee-bouton" class="sm:flex sm:justify-center sm:items-center sm:gap-8">
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
                     onclick="filtrerParAnnee('Tous')">Tous</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
                     onclick="filtrerParAnnee('A1')">A1</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
                     onclick="filtrerParAnnee('A2')">A2</button>
                 <button
-                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
+                    class="shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] p-2 sm:p-4 rounded text-[#00a5a5] font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bouton-annee"
                     onclick="filtrerParAnnee('A3')">A3</button>
             </div>
         </div>
@@ -59,7 +60,7 @@
     </div>
     </div>
     <div class="flex justify-center items-center gap-4">
-        <div class="text-center">
+        <div class="text-center overflow-x-auto">
             <table id="tableau" class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-[#00a5a5]">
                     <tr>

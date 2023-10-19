@@ -20,31 +20,31 @@ if (!isset($_SESSION['username'])) {
 
 <body>
     <?php require_once('../layouts/header.layout.php'); ?>
-    <div class="mt-[200px]">
+    <div class="mt-36">
         <div class="flex justify-center items-center mt-24">
             <form action="#" method="post"
-                class="bg-white shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] w-[800px] p-10 rounded-lg">
+                class="bg-white shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] w-screen sm:w-[800px] p-10 rounded-lg">
                 <div class="flex flex-col gap-4">
                     <h1 class="text-[#00a5a5] font-bold text-3xl">Ajouter un étudiant</h1>
                     <div class="h-1 bg-[#00a5a5] w-10"></div>
                 </div>
                 <div class="flex mt-10 gap-6 justify-center items-center">
                     <input type="text" name="prenom" placeholder="Prénom"
-                        class="w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
+                        class="w-[180px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
                     <input type="text" name="nom" placeholder="Nom"
-                        class="w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
+                        class="w-[180px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
                 </div>
                 <div class="mt-10 flex justify-center items-center">
                     <input type="mail" name="mail" placeholder="E-mail"
-                        class="w-[505px] p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
+                        class="w-[460px] sm:w-[505px] p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
                 </div>
                 <div class="flex mt-10 gap-6 justify-center items-center">
-                    <select name="annee" class="w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
+                    <select name="annee" class="w-[100px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
                         <option value="A1">A1</option>
                         <option value="A2">A2</option>
                         <option value="A3">A3</option>
                     </select>
-                    <select name="specialite" class="w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
+                    <select name="specialite" class="w-[240px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
                         <option value="Développement Web">Développement Web</option>
                         <option value="Web Marketing">Web Marketing</option>
                         <option value="Communication Graphique">Communication Graphique</option>

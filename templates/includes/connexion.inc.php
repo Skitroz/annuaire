@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,7 +19,7 @@
         </div>
     </div>
 
-    <div class="flex justify-center items-center mt-24">
+    <div class="flex justify-center items-center mt-12 sm:mt-24 mb-12 sm:mb-0">
         <form action="#" method="post"
             class="bg-white shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] w-[800px] p-10 rounded-lg">
             <div class="flex flex-col gap-4">
@@ -61,6 +60,6 @@ if (isset($_POST["connexion"])) {
         header("Location: ./annuaire.inc.php");
         exit();
     } else {
-        echo "<p class='text-red-500 font-bold text-lg mt-8 text-center'>Le nom d'utilisateur ou le mot de passe est incorrect.</p>";
+        echo "<p class='text-red-500 font-bold text-lg mt-8 text-center mb-12 sm:mb-0'>Le nom d'utilisateur ou le mot de passe est incorrect.</p>";
     }
 }

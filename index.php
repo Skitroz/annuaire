@@ -36,41 +36,32 @@ $resultatDeLaRecherche = recherche();
     <?php require_once('templates/layouts/header.layout.php'); ?>
     <section class="relative">
         <img src="https://normandiewebschool.fr/uploads/banniere_etudiants_nws.jpg"
-            alt="Bannière des étudiants de la Normandie Web School" class="h-auto w-screen">
+            alt="Bannière des étudiants de la Normandie Web School" class="mt-[110px] sm:-mt-0 sm:h-auto sm:w-screen">
         <div class="absolute inset-0 bg-black opacity-40"></div>
     </section>
 
     <form action="index.php" method="get" class="relative top-[-25px] flex justify-center items-center">
-        <div class="w-[400px] p-2 rounded-lg bg-[#f3f3f3] flex justify-evenly">
+        <div class="w-[300px] sm:w-[400px] p-2 rounded-lg bg-[#f3f3f3] flex justify-evenly">
             <input type="text" name="etudiant" placeholder="Rechercher un étudiant"
-                class="bg-[#f3f3f3] focus:outline-none text-xl" required>
+                class="bg-[#f3f3f3] focus:outline-none sm:text-xl" required>
             <button type="submit"
                 class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><i
-                    class="fas fa-search bg-[#00a5a5] text-white p-4 rounded-full"></i></button>
+                    class="fas fa-search bg-[#00a5a5] text-white p-2 sm:p-4 rounded-full"></i></button>
         </div>
     </form>
     <?php
     if (isset($_GET["etudiant"])) {
         if (count($resultatDeLaRecherche) > 0) {
-            echo '<div class="max-w-screen-md mx-auto mt-8">';
+            echo '<div class="flex justify-center items-center gap-4">';
+            echo '<div class="text-center overflow-x-auto">';
             echo '<table class="min-w-full divide-y divide-gray-200">';
-            echo '<thead class="bg-gray-50">';
+            echo '<thead class="bg-[#00a5a5]">';
             echo '<tr>';
-            echo '<th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                    ';
-            echo '<th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prénom
-                    </th>';
-            echo '<th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-mail
-                    </th>';
-            echo '<th scope="col"
-                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Année
-                </th>';
-            echo '<th scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Spécialité
-            </th>';
+            echo '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nom</th>';
+            echo '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Prénom</th>';
+            echo '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">E-mail</th>';
+            echo '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Année</th>';
+            echo '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Spécialité</th>';
             echo '</tr>';
             echo '</thead>';
             echo '<tbody class="bg-white divide-y divide-gray-200">';
@@ -88,11 +79,13 @@ $resultatDeLaRecherche = recherche();
             echo '</tbody>';
             echo '</table>';
             echo '</div>';
+            echo '</div>';
         } else {
             echo "<p class='mt-8 text-center'>Aucun étudiant trouvé.</p>";
         }
     }
     ?>
+
 </body>
 
 </html>
