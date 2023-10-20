@@ -68,11 +68,11 @@ $resultatDeLaRecherche = recherche();
 
             foreach ($resultatDeLaRecherche as $resultats) {
                 echo '<tr>';
-                echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["nom"] . '</td>';
-                echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["prenom"] . '</td>';
-                echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["mail"] . '</td>';
-                echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["annee"] . '</td>';
-                echo '<td class="px-6 py-4 whitespace-nowrap">' . $resultats["spe"] . '</td>';
+                echo '<td class="px-6 py-4 whitespace-nowrap">' . htmlspecialchars($resultats["nom"]) . '</td>';
+                echo '<td class="px-6 py-4 whitespace-nowrap">' . htmlspecialchars($resultats["prenom"]) . '</td>';
+                echo '<td class="px-6 py-4 whitespace-nowrap">' . htmlspecialchars($resultats["mail"]) . '</td>';
+                echo '<td class="px-6 py-4 whitespace-nowrap">' . htmlspecialchars($resultats["annee"]) . '</td>';
+                echo '<td class="px-6 py-4 whitespace-nowrap">' . htmlspecialchars($resultats["spe"]) . '</td>';
                 echo '</tr>';
             }
 
@@ -85,7 +85,6 @@ $resultatDeLaRecherche = recherche();
         }
     }
     ?>
-
 </body>
 
 </html>

@@ -2,10 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header('Location: ./connexion.inc.php');
-    exit;
-}
+require_once(__DIR__ . '/../../src/toolkit.php');
+verifConnexion();
+
+$prenom = $nom = $mail = $annee = $specialite = '';
+ajoutEtudiant();
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +31,16 @@ if (!isset($_SESSION['username'])) {
                 </div>
                 <div class="flex mt-10 gap-6 justify-center items-center">
                     <input type="text" name="prenom" placeholder="Prénom"
-                        class="w-[180px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
+                        class="w-[180px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]"
+                        value="<?php echo htmlspecialchars($prenom, ENT_QUOTES, 'UTF-8'); ?>" required>
                     <input type="text" name="nom" placeholder="Nom"
-                        class="w-[180px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
+                        class="w-[180px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]"
+                        value="<?php echo htmlspecialchars($nom, ENT_QUOTES, 'UTF-8'); ?>" required>
                 </div>
                 <div class="mt-10 flex justify-center items-center">
-                    <input type="mail" name="mail" placeholder="E-mail"
-                        class="w-[460px] sm:w-[505px] p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]" required>
+                    <input type="email" name="mail" placeholder="E-mail"
+                        class="w-[460px] sm:w-[505px] p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]"
+                        value="<?php echo htmlspecialchars($mail, ENT_QUOTES, 'UTF-8'); ?>" required>
                 </div>
                 <div class="flex mt-10 gap-6 justify-center items-center">
                     <select name="annee" class="w-[100px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
@@ -44,7 +48,8 @@ if (!isset($_SESSION['username'])) {
                         <option value="A2">A2</option>
                         <option value="A3">A3</option>
                     </select>
-                    <select name="specialite" class="w-[240px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
+                    <select name="specialite"
+                        class="w-[240px] sm:w-60 p-4 border-[#d1d1d1] border-2 rounded bg-[#f3f3f3]">
                         <option value="Développement Web">Développement Web</option>
                         <option value="Web Marketing">Web Marketing</option>
                         <option value="Communication Graphique">Communication Graphique</option>
@@ -61,22 +66,3 @@ if (!isset($_SESSION['username'])) {
 </body>
 
 </html>
-
-<?php
-
-if (isset($_POST['enregistrer'])) {
-    $prenom = $_POST['prenom'];
-    $nom = $_POST['nom'];
-    $mail = $_POST['mail'];
-    $annee = $_POST['annee'];
-    $specialite = $_POST['specialite'];
-
-    require_once(__DIR__ . '/../../configs/bootstrap.php');
-
-    $requete = "INSERT INTO etudiants (prenom, nom, mail, annee, spe) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $pdo->prepare($requete);
-    $stmt->execute([$prenom, $nom, $mail, $annee, $specialite]);
-
-    echo "<p class='text-[#00a5a5] font-bold text-lg mt-8 text-center'>L'étudiant a bien été ajouté.</p>";
-    exit;
-}

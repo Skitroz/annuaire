@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+require_once(__DIR__ . '/../../src/toolkit.php');
+connexion();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -9,13 +16,14 @@
 </head>
 
 <body>
-    <?php require_once(__DIR__ . '/../../configs/bootstrap.php'); ?>
     <?php require_once('../layouts/header.layout.php'); ?>
 
     <div class="mt-36 flex justify-center items-center">
         <div class="bg-white shadow-[0_1px_10px_1px_rgba(0,0,0,0.4)] w-[800px] p-10 rounded-lg">
-            <h2 class="text-center font-bold text-[#00a5a5] text-[18px]">Connectez-vous pour pouvoir ajouter ou modifier un étudiant dans l'annuaire !</h2>
-            <p class="text-center font-semibold text-[14px] text-[#746d6d]">Si vous souhaitez créer un compte, contactez l'administrateur du site.</p>
+            <h2 class="text-center font-bold text-[#00a5a5] text-[18px]">Connectez-vous pour pouvoir ajouter ou modifier
+                un étudiant dans l'annuaire !</h2>
+            <p class="text-center font-semibold text-[14px] text-[#746d6d]">Si vous souhaitez créer un compte, contactez
+                l'administrateur du site.</p>
         </div>
     </div>
 
@@ -41,25 +49,3 @@
 </body>
 
 </html>
-
-<?php
-
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-
-if (isset($_POST["connexion"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    $stmt = $pdo->prepare("SELECT * FROM login WHERE username = ? AND password = ?");
-    $stmt->execute([$username, $password]);
-
-    if ($stmt->rowCount() > 0) {
-        $_SESSION['username'] = $username;
-        header("Location: ./annuaire.inc.php");
-        exit();
-    } else {
-        echo "<p class='text-red-500 font-bold text-lg mt-8 text-center mb-12 sm:mb-0'>Le nom d'utilisateur ou le mot de passe est incorrect.</p>";
-    }
-}

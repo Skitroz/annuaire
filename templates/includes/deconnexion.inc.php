@@ -1,9 +1,4 @@
 <?php
-
-session_start();
-
-session_destroy();
-
-header('Location: /annuaire/index.php');
-exit();
+require_once(__DIR__ . '/../../src/toolkit.php');
+deconnexion();
 ?>
