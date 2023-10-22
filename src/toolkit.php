@@ -94,13 +94,32 @@ function deconnexion()
 ?>
 
 <!-- Fonction pour lister toutes les personnes enregistrées -->
-
 <?php
-function annuaire()
+function nombrePage($itemsPerPage = 10)
+{
+    require(__DIR__ . '/../configs/bootstrap.php');
+    $requeteCount = "SELECT COUNT(*) as total FROM etudiants";
+    $stmtCount = $pdo->prepare($requeteCount);
+    $stmtCount->execute();
+    $totalItems = $stmtCount->fetch(PDO::FETCH_ASSOC)['total'];
+
+    if ($totalItems > 0) {
+        $totalPages = ceil($totalItems / $itemsPerPage);
+    } else {
+        $totalPages = 1;
+    }
+
+    return $totalPages;
+}
+function annuaire($page)
 {
     require(__DIR__ . '/../configs/bootstrap.php');
 
-    $requete = "SELECT * FROM etudiants";
+    $itemsPerPage = 10;
+
+    $offset = ($page - 1) * $itemsPerPage;
+
+    $requete = "SELECT * FROM etudiants LIMIT $itemsPerPage OFFSET $offset";
 
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
@@ -121,57 +140,47 @@ function annuaire()
 }
 ?>
 
-<!-- Fonction qui permet de modifier un étudiant -->
-<<?php
-function modifierEtudiant()
+<!-- Fonction de pour rechercher un étudiant -->
+<?php
+function recherche()
 {
-    require_once(__DIR__ . '/../configs/bootstrap.php');
+    require('./configs/bootstrap.php');
+    $resultat = [];
 
-    // Obtenez l'étudiant en utilisant la fonction getEtudiant
-    $etudiant = getEtudiant();
+    if (isset($_GET["etudiant"])) {
+        $etudiant = '%' . $_GET["etudiant"] . '%';
 
-    if (isset($_POST['modifier'])) {
-        $nouveauPrenom = $_POST['prenom'];
-        $nouveauNom = $_POST['nom'];
-        $nouveauMail = $_POST['mail'];
-        $nouvelleAnnee = $_POST['annee'];
-        $nouvelleSpecialite = $_POST['specialite'];
+        $requete = "SELECT * FROM etudiants WHERE nom LIKE :etudiant OR prenom LIKE :etudiant";
 
-        // Vérifiez si $etudiant est initialisée
-        if ($etudiant !== null) {
-            $etudiantId = $etudiant['id']; // Obtenez l'ID de l'étudiant
-            $requete = "UPDATE etudiants SET prenom = ?, nom = ?, mail = ?, annee = ?, spe = ? WHERE id = ?";
-            $stmt = $pdo->prepare($requete);
-            $stmt->execute([$nouveauPrenom, $nouveauNom, $nouveauMail, $nouvelleAnnee, $nouvelleSpecialite, $etudiantId]);
-        }
+        $stmt = $pdo->prepare($requete);
+        $stmt->bindParam(':etudiant', $etudiant, PDO::PARAM_STR);
+        $stmt->execute();
 
-        header('Location: ./annuaire.inc.php');
-        exit;
+        $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    return $resultat;
 }
-function getEtudiant()
-{
+?>
+
+<?php
+function recupererDonneesEtudiants() {
     require_once(__DIR__ . '/../configs/bootstrap.php');
+    global $pdo;
 
-    $etudiant = [];
+    try {
+        // Préparez la requête SQL pour récupérer les données des étudiants
+        $requete = "SELECT nom, prenom, mail, annee, spe FROM etudiants";
+        $stmt = $pdo->prepare($requete);
+        $stmt->execute();
 
-    if (isset($_GET['id'])) {
-        $etudiantId = $_GET['id'];
+        // Récupérez toutes les lignes de résultats sous forme de tableau associatif
+        $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmt = $pdo->prepare("SELECT * FROM etudiants WHERE id = ?");
-        $stmt->execute([$etudiantId]);
-
-        if ($stmt->rowCount() == 1) {
-            $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
-        } else {
-            echo "Étudiant non trouvé.";
-            exit;
-        }
-    } else {
-        echo "ID d'étudiant non spécifié.";
-        exit;
+        return $resultats;
+    } catch (PDOException $e) {
+        // Gérez les erreurs ici
+        echo "Erreur lors de la récupération des données : " . $e->getMessage();
+        return array();
     }
-
-    return $etudiant;
 }
 ?>

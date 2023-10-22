@@ -1,22 +1,6 @@
 <?php
-function recherche()
-{
-    require('./configs/bootstrap.php');
-    $resultat = [];
-
-    if (isset($_GET["etudiant"])) {
-        $etudiant = '%' . $_GET["etudiant"] . '%';
-
-        $requete = "SELECT * FROM etudiants WHERE nom LIKE :etudiant OR prenom LIKE :etudiant";
-
-        $stmt = $pdo->prepare($requete);
-        $stmt->bindParam(':etudiant', $etudiant, PDO::PARAM_STR);
-        $stmt->execute();
-
-        $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    return $resultat;
-}
+require_once ('./src/toolkit.php');
+recherche();
 
 $resultatDeLaRecherche = recherche();
 ?>
