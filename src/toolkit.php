@@ -161,26 +161,3 @@ function recherche()
     return $resultat;
 }
 ?>
-
-<?php
-function recupererDonneesEtudiants() {
-    require_once(__DIR__ . '/../configs/bootstrap.php');
-    global $pdo;
-
-    try {
-        // Préparez la requête SQL pour récupérer les données des étudiants
-        $requete = "SELECT nom, prenom, mail, annee, spe FROM etudiants";
-        $stmt = $pdo->prepare($requete);
-        $stmt->execute();
-
-        // Récupérez toutes les lignes de résultats sous forme de tableau associatif
-        $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $resultats;
-    } catch (PDOException $e) {
-        // Gérez les erreurs ici
-        echo "Erreur lors de la récupération des données : " . $e->getMessage();
-        return array();
-    }
-}
-?>
